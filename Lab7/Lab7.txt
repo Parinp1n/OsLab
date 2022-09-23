@@ -1,0 +1,37 @@
+1.6 หาก uncomment บรรทัดที่ 19 o.getValue()จากบรรทัดที่ 20 ตอบค่าอะไรได้บ้าง
+    - 3,7
+Q1 : MatrixMulThread(int tRow, int tCol,MyData a, MyData b, MyData c) {
+        this.processing_row = tRow;
+        this.processing_col = tCol;
+        this.datA = a;
+        this.datB = b;
+        this.datC = c;
+     }
+
+Q2 : public
+
+Q3 : for (int i = 0; i < matC_r; i++) {
+            for (int j = 0; j < matC_c; j++) {
+                Thread t = new Thread(new MatrixMulThread(i, j, matA, matB , matC));
+                t.start();
+            }
+     }
+
+Q4 : for (int i = 0; i < matC_r; i++) {
+            for (int j = 0; j < matC_c; j++) {
+                t[i][j] = new Thread(new MatrixMulThread(i, j, matA, matB, matC));
+                t[i][j].start();
+
+
+            }
+    }
+
+Q5 : for (int i = 0; i < t.length; i++) {
+            for (int j = 0; j < t[i].length; j++) {
+                try {
+                    t[i][j].join();
+                    } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
+    }
